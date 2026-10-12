@@ -1,7 +1,7 @@
 let pole = [];
 let radky = 6;
 let sloupce = 6;
-let hodnota = 0
+let hodnota = 0;
 
 let zvivrata = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮"]
 let mnozstvi_zvirat = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3];
@@ -34,3 +34,18 @@ for (let i = 0; i < radky; i++) {
 
 console.log(pole);
 console.log(role);
+
+const table = document.getElementById("hraci_pole");
+
+for (let i = 0; i < radky; i++) {
+    const row = document.createElement("tr");  
+    for (let j = 0; j < sloupce; j++) {
+        const cell = document.createElement("td");
+        cell.textContent = pole[i][j];
+        row.appendChild(cell);
+    }
+    table.appendChild(row);
+}
+
+
+
