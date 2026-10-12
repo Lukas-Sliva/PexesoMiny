@@ -1,0 +1,11 @@
+
+
+Jedná se o hybrid mezi minami a pexesem.
+
+Na obrazovce je hrací pole se skrytímy kartičkami. 
+
+Na těchto kartičkách může být buď nějaké zvíře nebo bomba.
+Všechna zvířata jsou schovaná na poli po trojicích.
+Pokud hráč odhalí 2 různá zvířata tak je na tahu další hráč. 
+Pokud hráč odhalí bombu tak prohrává.
+Pokud hráč odhali 2 stejná zvířata tak se tyto pole změní na číslo indikující počet okolních bomb a třetí zvíře tohoto typu se změní na bombu, tento hráč pokračuje v tahu.
