@@ -129,6 +129,7 @@ function otoceni_zpet(i,j) {
                 if (viditelne[i][j] !== "?" && viditelne[i][j] !== "99") {
                     table.rows[i].cells[j].firstChild.textContent = "?";
                     viditelne[i][j] = "?";
+                    console.log(i + " " + j)
                 }
             }
     }
