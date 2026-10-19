@@ -6,9 +6,12 @@ let zobrazeno = 0;
 let viditelne = [];
 
 
-function karta(typ,pozice){
-    this.typ = typ;
-    this.pozice = pozice;
+class karta{
+    constructor(typ,pozice){
+        this.typ = typ;
+        this.pozice = pozice;
+    }
+
 }
 
 const karta1 = new karta("", [99, 99]);
@@ -68,6 +71,7 @@ for (let i = 0; i < radky; i++) {
         const button = document.createElement("button");
 
         button.textContent = pole[i][j];
+
         button.setAttribute("onclick", `otoceni(${i}, ${j})`);
         otoceni_zpet();
         cell.appendChild(button);
@@ -77,33 +81,47 @@ for (let i = 0; i < radky; i++) {
 }
 
 function otoceni(i, j) {
+    //
     table.rows[i].cells[j].firstChild.textContent = role[i][j];
     viditelne[i][j] = role[i][j];
+    //AI Used, Model: OpenAI GPT-5.6-sol
     kontrola_karet(i, j);
-    otoceni_zpet();
+    otoceni_zpet(i,j);
 }
 
 function  kontrola_karet(i, j) {
     if (karta1.typ === "") {
         karta1.typ = role[i][j];
         karta1.pozice = [i, j];
+        alert(karta1.typ + karta1.pozice);
+        alert("1");
     }
     else if (karta2.typ === "") {
         karta2.typ = role[i][j];
         karta2.pozice = [i, j];
+        alert(karta2.typ + karta2.pozice);
+        alert("2")
     }
+
     if(karta1.typ === karta2.typ){
             role[karta1.pozice[i]][karta1.pozice[j]] = "99";
             role[karta2.pozice[i]][karta2.pozice[j]] = "99";
+
+
 
             karta1.typ = "";
             karta2.typ = "";
             karta1.pozice = [99, 99];
             karta2.pozice = [99, 99];
+
+    }else if (karta1 !== "" && karta2.typ !== ""){
+        karta1.typ = "";
+        karta2.typ = "";
     }
 
+
 }
-function otoceni_zpet() {
+function otoceni_zpet(i,j) {
     
     if (zobrazeno >= 2) {
         for (let i = 0; i < radky; i++) {
@@ -112,7 +130,7 @@ function otoceni_zpet() {
                     table.rows[i].cells[j].firstChild.textContent = "?";
                     viditelne[i][j] = "?";
                 }
-            }         
+            }
     }
     zobrazeno = 0;
     }
@@ -120,3 +138,6 @@ function otoceni_zpet() {
         zobrazeno++;
     }
 }
+
+
+// části kódu byly pomocí VS code doplňovače
