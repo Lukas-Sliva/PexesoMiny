@@ -110,9 +110,9 @@ function otoceni(i, j) {
         
         setTimeout(() => {
             if (naTahu === 1) {
-                alert(`${jmenoHrace1} prohrál!`);
+                alert(`${jmenoHrace1} je v háji!`);
             } else {
-                alert(`${jmenoHrace2} prohrál!`);
+                alert(`${jmenoHrace2} je v háji!`);
             }
             location.reload();
         }, 3000);
@@ -253,9 +253,9 @@ function kontrolaVyhry() {
     }
     if (prozkoumaneKarty === radky * sloupce) {
         if (skore1 > skore2) {
-            alert(`${jmenoHrace1} vyhrál!`);
+            alert(`${jmenoHrace1} výtězí!`);
         } else if (skore2 > skore1) {
-            alert(`${jmenoHrace2} vyhrál!`);
+            alert(`${jmenoHrace2} výtězí!`);
         }else {
             alert("Remíza!");
         }
