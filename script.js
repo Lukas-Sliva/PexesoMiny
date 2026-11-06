@@ -56,10 +56,12 @@ for (let i = 0; i < radky; i++) {
 
 
 
-
+if (jmenoHrace1 === "cheat"){
 console.log(pole);
 console.log(role);
 console.log(viditelne);
+}
+
 
 const table = document.getElementById("hraci_pole");
 
@@ -95,7 +97,7 @@ hrac2.textContent = `${jmenoHrace2}: ${skore2} ${naTahu === 2 ? "(Na tahu)" : ""
 
 function otoceni(i, j) { 
     if (zobrazeno < 2) {
-    if (role[i][j] === "99") {
+    if (role[i][j] === "99" || viditelne[i][j] !== "❓" || exploze) {
         return;
     }
     if ( table.rows[i].cells[j].firstChild.textContent === "❓") {
@@ -133,13 +135,13 @@ function  kontrola_karet(i, j) {
     if (karta1.typ === "") {
         karta1.typ = role[i][j];
         karta1.pozice = [i, j];
-        table.rows[karta1.pozice[0]].cells[karta1.pozice[1]].firstChild.disabled = true;
+        // table.rows[karta1.pozice[0]].cells[karta1.pozice[1]].firstChild.disabled = true;
         zobrazeno++;
     }
     else if (karta2.typ === "") {
         karta2.typ = role[i][j];
         karta2.pozice = [i, j];
-        table.rows[karta2.pozice[0]].cells[karta2.pozice[1]].firstChild.disabled = true;
+        // table.rows[karta2.pozice[0]].cells[karta2.pozice[1]].firstChild.disabled = true;
         zobrazeno++;
     }
 
@@ -169,8 +171,8 @@ function  kontrola_karet(i, j) {
                 //--------AI Used, Model: GPT-6, jazykový model od OpenAI.
                 
                 //-------------------------
-            table.rows[karta1.pozice[0]].cells[karta1.pozice[1]].firstChild.disabled = true;
-            table.rows[karta2.pozice[0]].cells[karta2.pozice[1]].firstChild.disabled = true;
+            // table.rows[karta1.pozice[0]].cells[karta1.pozice[1]].firstChild.disabled = true;
+            // table.rows[karta2.pozice[0]].cells[karta2.pozice[1]].firstChild.disabled = true;
             //-----------------AI Used Gemini 3.5 Flash-Lite od společnosti Google.
 
     }else{
@@ -203,8 +205,8 @@ function otoceni_zpet() {
 
             
             if (karta1.pozice[0] !== 99 && karta1.pozice[1] !== 99) {
-                table.rows[karta1.pozice[0]].cells[karta1.pozice[1]].firstChild.disabled = false;
-                table.rows[karta2.pozice[0]].cells[karta2.pozice[1]].firstChild.disabled = false;
+            // table.rows[karta1.pozice[0]].cells[karta1.pozice[1]].firstChild.disabled = false;
+            // table.rows[karta2.pozice[0]].cells[karta2.pozice[1]].firstChild.disabled = false;
             }
 
             
